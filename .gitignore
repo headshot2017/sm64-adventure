@@ -1,0 +1,7 @@
+/src/decomp/mario
+/build/
+/dist/
+*.z64
+*.dll
+compile_commands.json
+/.cache/
