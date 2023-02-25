@@ -16,8 +16,15 @@ extern "C" {
 	{
 		helperFuncs = helperFunctions;
 
-		FILE* f = fopen("sm64.us.z64", "rb");
-		if( !f ) return;
+		char fullFile[256] = {0};
+		strcpy(fullFile, path);
+		strcat(fullFile, "\\sm64.us.z64");
+		FILE* f = fopen(fullFile, "rb");
+		if (!f)
+		{
+			MessageBoxA(0, "Super Mario 64 US ROM not found\nPlace \"sm64.us.z64\" on the \"mods\\SM64 Adventure\" mod folder", "SM64 Adventure", 0);
+			return;
+		}
 
 		fseek(f, 0, SEEK_END);
 		size_t length = (size_t)ftell(f);
